@@ -11,7 +11,7 @@ def calculate_total(items):
             raise ValueError("Price and quantity cannot be negative")
         subtotal += price * quantity
 
-    discount = subtotal * DISCOUNT_RATE if subtotal > DISCOUNT_THRESHOLD else 0
+    discount = subtotal * DISCOUNT_RATE if subtotal >= DISCOUNT_THRESHOLD else 0
     taxable = subtotal - discount
     gst = taxable * GST_RATE
     return round(taxable + gst, 2)
